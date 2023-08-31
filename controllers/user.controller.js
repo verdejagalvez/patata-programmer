@@ -1,6 +1,6 @@
 
 module.exports.register = (req, res, next) => {
-  res.render('user/register')
+  res.render('users/register')
 };
 
 module.exports.doRegister = (req, res, next) => {

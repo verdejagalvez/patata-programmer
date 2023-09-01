@@ -4,5 +4,5 @@ module.exports.register = (req, res, next) => {
 };
 
 module.exports.doRegister = (req, res, next) => {
-
+  
 };

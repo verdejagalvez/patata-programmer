@@ -3,8 +3,7 @@ const router= express.Router();
 const user = require('../controllers/user.controller');
 const potato = require('../controllers/potato.controller');
 
-router.get('/home', potato.list);
+router.get('/', potato.list);
 router.get('/register', user.register);
-
 
 module.exports = router;

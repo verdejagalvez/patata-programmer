@@ -3,7 +3,7 @@ const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
 
-module.exports.session = expressSession ({
+module.exports.session = expressSession({
     secret: process.env.SESSION_SECRET || 'super-secret (change it)',
     resave: false, 
     saveUninitialized: false, 
@@ -16,3 +16,18 @@ module.exports.session = expressSession ({
         secure: process.env.SESSION_SECRET === 'true',
     }
 })
+
+module.exports.loadSessionUser = (req, res, next) => {
+    const userId = req.session.userId;
+    if(userId) {
+        User.findById(userId)
+        .then((user) => {
+            req.user = user;
+            next();
+        })
+        .catch((error) => next(error));
+
+        } else {
+            next();
+        }
+    }

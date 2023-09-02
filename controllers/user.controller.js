@@ -6,6 +6,7 @@ module.exports.register = (req, res, next) => {
 };
 
 module.exports.doRegister = (req, res, next) => {
+  console.log(123)
  User.findOne({ username: req.body.username })
   .then((user) => {
     if (user) {
@@ -48,7 +49,7 @@ module.exports.doLogin = (req, res, next) => {
   User.findOne({ username: req.body.username })
     .then((user) => {
       if(user) {
-        return user.checkPassword(re.body.password)
+        return user.checkPassword(req.body.password)
           .then((match) => {
             if(match) {
               req.session.userId = user.id;

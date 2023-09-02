@@ -1,1 +1,20 @@
-<h1>LOGIN</h1>
+{{#if info}}<div class="alert alert-primary" role="alert">{{ info }}</div> {{/if}}
+
+<form action="/login" method="post">
+
+  <div class="mb-3">
+    <label class="form-label">UserName</label>
+    <input type="username" name="username" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="name" value="{{ user.username }}">
+    {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="password" name="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" aria-label="password">
+    {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
+  </div>
+
+  <div class="mb-3">
+     <button type="submit" class="btn btn-primary">Login</button>
+  </div>
+</form>

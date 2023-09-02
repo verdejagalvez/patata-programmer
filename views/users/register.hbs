@@ -8,7 +8,7 @@
 
   <div class="mb-3">
     <label class="input-group-text">Username</label>
-    <input name="username" type="text" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="Name" value="{{ user.name }}">
+    <input name="username" type="text" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="userName" value="{{ user.name }}">
     {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
   </div>
 

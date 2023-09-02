@@ -18,7 +18,6 @@ module.exports.doRegister = (req, res, next) => {
     } else {
       return User.create(req.body)
         .then(() => {
-          req.flash('data', JSON.stringify ({ info:'Please login in' }));
           res.redirect('/login')
         })
     }

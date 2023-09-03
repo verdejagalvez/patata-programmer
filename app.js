@@ -9,11 +9,11 @@ const app = express();
 
 app.use(express.static(path.join(__dirname,'public')));
 
-app.use(express.urlencoded({extended:false}));
-app.use(logger('dev'));
-
 app.set('view engine', 'hbs');
 app.set('views',`${__dirname}/views`);
+
+app.use(express.urlencoded({extended:false}));
+app.use(logger('dev'));
 
 const sessionConfig = require('./config/session.config')
 app.use(sessionConfig.session)

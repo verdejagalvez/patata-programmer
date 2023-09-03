@@ -66,9 +66,9 @@ module.exports.doLogin = (req, res, next) => {
 };
 
 module.exports.logout = (req, res, next) => {
-  req.session.destroy();
+  req.session.logout();
   res.redirect('/login');
-};
+}
 
 module.exports.profile = (req, res, next) => {
   res.render('users/profile', { user: req.user })

@@ -18,16 +18,33 @@ module.exports.session = expressSession({
 })
 
 module.exports.loadSessionUser = (req, res, next) => {
-    const userId = req.session.userId;
+  const userId = req.session.userId;
     if(userId) {
-        User.findById(userId)
+      User.findById(userId)
         .then((user) => {
-            req.user = user;
-            next();
+          req.user = user;
+          res.locals.currentUser = user;
+          next();
         })
         .catch((error) => next(error));
 
-        } else {
-            next();
-        }
+    } else {
+      next();
     }
+}
+
+module.exports.logoutSessionUser = (req, res, next) => {
+  const userId = req.logoutSessionUser.userId;
+  if(userId) {
+    User.findById(userId)
+      .then((user) => {
+        req.logoutSessionUser = user;
+        next();
+      })
+      .catch((error) => next(error));
+
+  } else {
+    next();
+  }
+}
+

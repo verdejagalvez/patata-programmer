@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('./config/db.config');
+require('./config/hbs.config');
 
 const logger = require('morgan');
 const path = require('path');

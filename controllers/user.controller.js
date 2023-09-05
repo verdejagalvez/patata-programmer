@@ -24,7 +24,7 @@ module.exports.doRegister = (req, res, next) => {
   })
   .catch((error) => {
     console.error(error);
-    if (error instanceof mogoose.Error.ValidationError) {
+    if (error instanceof mongoose.Error.ValidationError) {
       res.render('users/register', { user: req.body, errors: error.errors })
     } else {
       next(error);

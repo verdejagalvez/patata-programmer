@@ -1,21 +1,13 @@
 const mongoose = require ('mongoose');
-const Schema = mogoose.Schema;
 
 const recipeSchema = new mongoose.Schema({
-  recipe: {
-    recipe: { type:String },
-    date: { type:Date },
-    trim: { type:Boolean },
-    potato: { type: mongoose.Schema.Types.ObjectId, ref: 'potato' }
-  },
-  user: {
-    user: { type: mongoose.Schema.Types.ObjectId },
-    ref: 'User',
-    required: { type:Boolean },
-  }
+    recipe: { type: String },
+    time: { type: String },
+    potato: { type: mongoose.Schema.Types.ObjectId, ref: 'Potato' },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   },    
-    { timestamps: true, }
+  { timestamps: true }
 );
 
-const Recipe = mogoose.model('Recipe', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 module.exports = Recipe;

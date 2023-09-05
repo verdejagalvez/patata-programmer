@@ -6,7 +6,6 @@ module.exports.register = (req, res, next) => {
 };
 
 module.exports.doRegister = (req, res, next) => {
-  console.log(123)
  User.findOne({ username: req.body.username })
   .then((user) => {
     if (user) {

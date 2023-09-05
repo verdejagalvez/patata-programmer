@@ -1,23 +1,25 @@
 {{#if info}}<div class="alert alert-primary" role="alert">{{ info }}</div> {{/if}}
 
-
 <form action="/login" method="post">
+  <div class="container">
+      <div class="row justify-content-center m-5">
+          <div class="col-md-5">
+            <div class="mb-3">
+              <label class="form-label">UserName</label>
+              <input type="username" name="username" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="name" value="{{ user.username }}">
+              {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
+            </div>
 
-  <div class="mb-3">
-    <label class="form-label">UserName</label>
-    <input type="username" name="username" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="name" value="{{ user.username }}">
-    {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
-  </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" name="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" aria-label="password">
+              {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
+            </div>
 
-  <div class="mb-3">
-    <label class="form-label">Password</label>
-    <input type="password" name="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" aria-label="password">
-    {{#if errors.password}}<div class="invalid-feedback">{{ errors.password }}</div>{{/if}}
-  </div>
-
-  <div class="mb-3">
-     <button type="submit" class="btn btn-primary">Login</button>
-     <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href = '/'">Back</button>
-
+            <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Login</button>
+              <button class="btn btn-primary me-md-2" type="button" onclick="window.location.href = '/'">Back</button>
+            </div>
+    </div>
   </div>
 </form>

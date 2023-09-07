@@ -3,7 +3,6 @@ require('../config/db.config');
 
 const Potato = require('../models/potato.model');
 
-
 Potato.create([
   {
     name: "Monalisa",

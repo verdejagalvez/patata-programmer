@@ -66,7 +66,7 @@ module.exports.doLogin = (req, res, next) => {
 
 module.exports.logout = (req, res, next) => {
   req.session.logout();
-  res.redirect('/login');
+  res.redirect('/');
 }
 
 module.exports.profile = (req, res, next) => {

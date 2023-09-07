@@ -13,7 +13,7 @@ router.post('/login', user.doLogin);
 router.get('/profile', secure.isAuthenticated, user.profile);
 
 
-router.get('/profile/registerRecipe', recipe.registerRecipe);
-router.post('/profile/registerRecipe', recipe.doRegisterRecipe);
+router.get('/profile', recipe.registerRecipe);
+router.post('/profile', recipe.doRegisterRecipe);
 
 module.exports = router;

@@ -2,6 +2,7 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo');
 const mongoose = require('mongoose');
 const User = require('../models/user.model');
+const { error } = require('console');
 
 module.exports.session = expressSession({
     secret: process.env.SESSION_SECRET || 'super-secret (change it)',
@@ -32,19 +33,3 @@ module.exports.loadSessionUser = (req, res, next) => {
       next();
     }
 }
-
-module.exports.logoutSessionUser = (req, res, next) => {
-  const userId = req.logoutSessionUser.userId;
-  if(userId) {
-    User.findById(userId)
-      .then((user) => {
-        req.logoutSessionUser = user;
-        next();
-      })
-      .catch((error) => next(error));
-
-  } else {
-    next();
-  }
-}
-

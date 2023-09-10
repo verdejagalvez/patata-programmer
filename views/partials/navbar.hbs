@@ -8,9 +8,14 @@
       </li>
 
      
-      <li class="nav-item" color="green">
+      <li class="nav-item" color="green" "d-flex flex-row">
       {{#if currentUser}} 
+        <li>
+        <a class="nav-link" href="/profile" aria-disabled="true">Profile</a>
+        </li>
+        <li>
         <a class="nav-link" href="/logout" aria-disabled="true">Logout</a>
+        </li>
       {{else}} 
        <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>

@@ -49,11 +49,14 @@
 <div class="d-flex flex-wrap card-group">
   {{#each recipes as |recipe| }}
   <div class="recipe">
-    <img src="..." class="card-img-top" alt="...">
+    {{!-- <img src="..." class="card-img-top" alt="..."> --}}
     <div class="card-body">
-      <h5 class="card-title">Titulo</h5>
-      <p class="card-text">{{recipe.description}}</p>
-      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      <h5 class="card-title">
+        <img class="rounded-circle" src="{{ recipe.user.avatarUrl }}" alt="{{ recipe.user.username}}" width="25"/>
+        {{ recipe.user.username }}
+        </h5>
+      <p class="card-text">{{ recipe.description }}</p>
+      <p class="card-text"><small class="text-body-secondary">{{ elapsedTime recipe.createdAt }}</small></p>
     </div>
   </div>
   {{/each}}

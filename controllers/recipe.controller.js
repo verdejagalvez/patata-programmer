@@ -20,10 +20,11 @@ module.exports.doRegisterRecipe = (req, res, next) => {
 
 module.exports.recipeList = (req, res, next) => {
   Recipe.find()
-  .then((recipes) =>
-  {
-    console.log(recipes)
-    res.render('recipe/list', {recipes})
-  }
-  )
+  .populate({
+    path: 'user',
+    select: 'username avatarURL'
+  })
+  .sort({ cratedAt: -1})
+  .then((recipes) => res.render('recipe/list', { recipes })) 
+  .catch((error) => next(error));
 }

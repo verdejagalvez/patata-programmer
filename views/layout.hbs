@@ -12,7 +12,21 @@
       .carousel-indicators {
         display: none;
       }
+      .recipe-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Para distribuir las recetas uniformemente */
+        }
+      .recipe {
+        width: calc(44.44% - 30px); /* Para que cada receta ocupe un tercio del contenedor, dejando 10px de espacio entre ellas */
+        margin-bottom: 10px; /* Espacio entre las recetas */
+        padding: 5px;
+        border: 1px solid #ccc; /* Agrega un borde a cada receta si lo deseas */
+        box-sizing: border-box;
+      }
     </style>
+    
+
 </head>
 <body>
 

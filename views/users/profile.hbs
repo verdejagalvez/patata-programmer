@@ -1,5 +1,6 @@
-  <div class="d-flex justify-content-center g5">
-  <form action="/profile" method="post">
+<div class="d-flex justify-content-center g5">
+  <form action="/profile" method="post"> 
+    <img class="rounded-circle" src="{{user.avatarUrl}}" alt="{{user.name}}" width="50">
     <div class="form-floating m-2">
       <input class="form-control" name="description" placeholder="Leave your descrption here" id="floatingTextarea"></input>
       <label for="floatingTextarea">Escribe tu description de receta</label>
@@ -30,7 +31,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-              <p>Created by {{user.name}}</p>
+          <p>Created by {{user.name}}</p>
           <div class="m-1">
             <button type="submit" class="btn btn-outline-secondary">Publicar</button>
           </div>

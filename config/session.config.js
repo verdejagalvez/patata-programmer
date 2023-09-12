@@ -22,6 +22,12 @@ module.exports.loadSessionUser = (req, res, next) => {
   const userId = req.session.userId;
     if(userId) {
       User.findById(userId)
+        .populate({
+          path: 'recipes',
+          populate: {
+            path: 'potato'
+          }
+        })
         .then((user) => {
           req.user = user;
           res.locals.currentUser = user;

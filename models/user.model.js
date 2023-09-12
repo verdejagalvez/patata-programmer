@@ -44,6 +44,12 @@ const userSchema = new Schema({
 
 }, { timestamps: true });
 
+userSchema.virtual('recipes', {
+  ref: 'Recipe',
+  localField: '_id',
+  foreignField: 'user'
+})
+
 userSchema.pre('save', function(next) {
   const user = this;
 

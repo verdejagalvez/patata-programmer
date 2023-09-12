@@ -25,3 +25,4 @@ module.exports.recipeList = (req, res, next) => {
   .then((recipes) => res.render('recipe/list', { recipes })) 
   .catch((error) => next(error));
 }
+

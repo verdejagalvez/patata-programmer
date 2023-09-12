@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const Potato = require('../models/potato.model');
 const mongoose = require('mongoose');
 
 module.exports.register = (req, res, next) => {
@@ -70,5 +71,9 @@ module.exports.logout = (req, res, next) => {
 }
 
 module.exports.profile = (req, res, next) => {
-  res.render('users/profile', { user: req.user })
+  Potato.find()
+   .then((potatoes) => {
+    res.render('users/profile', { user: req.user, potatoes})
+   }) 
+   .catch() 
 };

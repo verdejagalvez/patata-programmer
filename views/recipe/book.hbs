@@ -1,0 +1,19 @@
+<div class="row row-cols-3 row-cols-lg-5">
+   {{#each recipes as |recipe| }}
+
+    <div class="card" style="width: 80rem;">
+      <img src="" class="card-img-top" alt="recipe-image">
+      <div class="card-body">
+        <h5 class="user" src="{{ recipe.user.avatarUrl }}">{{ recipe.user.username }}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{ recipe.description }}</li>
+        <li class="list-group-item">{{ elapsedTime recipe.createdAt }}</li>
+      </ul>
+      <div class="card-body">
+        <a href="#" class="card-link">Recipe</a>
+      </div>
+    </div>
+  <hr>
+{{/each}}
+  </div>

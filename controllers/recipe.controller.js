@@ -19,10 +19,13 @@ module.exports.doRegisterRecipe = (req, res, next) => {
 }
 
 module.exports.recipeList = (req, res, next) => {
+  const currentUser = req.user;
+  console.log(currentUser)
   Recipe.find()
   .populate('user', 'username avatarUrl')
   .sort({ cratedAt: -1})
-  .then((recipes) => res.render('recipe/list', { recipes })) 
+  .limit(3)
+  .then((recipes) => res.render('recipe/list', { recipes, currentUser}))
   .catch((error) => next(error));
 }
 

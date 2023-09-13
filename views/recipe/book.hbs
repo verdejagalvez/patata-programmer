@@ -1,19 +1,18 @@
-<div class="row row-cols-3 row-cols-lg-5">
-   {{#each recipes as |recipe| }}
 
+{{#each recipes as |recipe| }}
+
+  <div class="container d-flex justify-content-center" >
+    <div class="row">
+    <div class="col-lg-4 mb-4">
     <div class="card" style="width: 80rem;">
-      <img src="" class="card-img-top" alt="recipe-image">
       <div class="card-body">
-        <h5 class="user" src="{{ recipe.user.avatarUrl }}">{{ recipe.user.username }}</h5>
+        <img class="rounded-circle" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="35" />
+        <h4> {{ recipe.user.username }}</h4>
+        <p class="card-text">{{ recipe.description }}</p>
+        <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
+       <a href="/" class="btn btn-outline-success btn-sm">Read More</a>
+        <a href="" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
       </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{ recipe.description }}</li>
-        <li class="list-group-item">{{ elapsedTime recipe.createdAt }}</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Recipe</a>
-      </div>
+     </div>
     </div>
-  <hr>
 {{/each}}
-  </div>

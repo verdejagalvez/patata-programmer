@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-center g5">
-  <form action="/profile" method="post"> 
+<div class="d-flex justify-content-center mt-5">
+  <form style="width: 80rem;" action="/profile" method="post"> 
     <img class="rounded-circle" src="{{user.avatarUrl}}" alt="{{user.name}}" width="50">
     Create a recipe!
     <div class="form-floating m-2">
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col">
           <div class="m-1">
-            <button type="submit" class="btn btn-outline-secondary">Publish</button>
+            <button type="submit" class="btn btn-outline-secondary mb-5">Publish</button>
           </div>
         </div>
       </div>
@@ -40,22 +40,29 @@
   </form>
 </div>
 
+<div>
+  <h5 class="container d-flex justify-content-center">Recipe of {{user.username}}</h5>
+</div>
+
 <hr>
 
-<div class="d-flex justify-content-center g5">
-  <h5>Recipe of {{user.username}}</h5>
+ 
 {{#each user.recipes as |recipe| }}
-  <div class="card" style="width: 80rem;">
-    <img src="" class="card-img-top" alt="recipe-image" />
-    <div class="card-body">
-      <img class="rounded-circle" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="25" />
-      {{ user.username }}
+  <div class="container d-flex justify-content-center">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card" style="width: 80rem;">
+          <div class="card-body">
+            <img class="rounded-circle" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="35" />
+            <h4> {{ user.username }}</h4>
+            <p class="card-text">{{ recipe.description }}</p>
+            <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
+            <a href="/" class="btn btn-outline-success btn-sm me-3">Edit Recipe</a>
+            <a href="/" class="btn btn-outline-success btn-sm">Delete Recipe</a>
+          </div>
+        </div>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">{{ recipe.description }}</li>
-      <li class="list-group-item">{{ elapsedTime recipe.createdAt }}</li>
-    </ul>
   </div>
-  <hr>
 {{/each}}
-</div>
+

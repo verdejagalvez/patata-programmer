@@ -23,7 +23,7 @@ module.exports.recipeList = (req, res, next) => {
   console.log(currentUser)
   Recipe.find()
   .populate('user', 'username avatarUrl')
-  .sort({ cratedAt: -1})
+  .sort({ createdAt: -1})
   .limit(3)
   .then((recipes) => res.render('recipe/list', { recipes, currentUser}))
   .catch((error) => next(error));

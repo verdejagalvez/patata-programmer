@@ -46,24 +46,24 @@
     <h1 i class="fas fa-utensils mr-3 p-3"> Recetas Patateras </h1></i>
   </div>
 
-{{#each recipes as |recipe| }}
-  <div class="container d-flex justify-content-center">
-    <div class="row">
-      <div class="col-lg-4 mb-4">
-      <div class="card" style="width: 80rem;">
-        <div class="card-body">
-          <img class="rounded-circle" src="{{ recipe.user.avatarUrl }}" alt="{{ recipe.user.username }}" width="35" />
-          <h4> {{ recipe.user.username }}</h4>
-          <p class="card-text">{{ recipe.description }}</p>
-          <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
-          {{#if ../currentUser}} 
-            <a href="/book" class="btn btn-outline-success btn-sm" aria-disabled="true">More Recipes {{currentUser.name}}</a>
-          {{else}} 
-            <a href="/register" class="btn btn-outline-success btn-sm">More Recipes</a>
-          {{/if}} 
+<div class="container">
+  <div class="row">
+    {{#each recipes as |recipe| }}
+      <div class="col-4 mb-3">
+        <div class="card">
+          <img class="rounded-circle ms-3 mt-3" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="55" />
+          <div class="card-body">
+            <h4 class="card-title">{{ recipe.user.username }}</h4>
+            <p class="card-text">{{ recipe.description }}</p>
+            <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
+            {{#if ../currentUser}} 
+              <a href="/book" class="btn btn-outline-success btn-sm" aria-disabled="true">More Recipes {{currentUser.name}}</a>
+            {{else}} 
+              <a href="/register" class="btn btn-outline-success btn-sm">More Recipes</a>
+            {{/if}} 
+          </div>
         </div>
       </div>
-      </div>
-    </div>
+    {{/each}}
   </div>
-{{/each}}
+</div>

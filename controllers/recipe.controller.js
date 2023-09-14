@@ -7,9 +7,12 @@ module.exports.registerRecipe = (req, res, next) => {
 
 module.exports.doRegisterRecipe = (req, res, next) => {
   console.log(req.body);
+  console.log(req.file);
   Recipe.create({
+    title: req.body.title,
     description: req.body.description, 
-    user: req.user.id
+    user: req.user.id,
+    image: req.file.path
   })
   .then(() => {
     console.log('receta creada')

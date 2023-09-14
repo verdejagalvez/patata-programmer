@@ -5,6 +5,7 @@ const secure = require('../middlewares/secure.mid');
 const potato = require('../controllers/potato.controller');
 const recipe = require('../controllers/recipe.controller');
 const book = require('../controllers/book.controller');
+const upload = require('../config/multer.config');
 
 router.get('/', recipe.recipeList);
 router.get('/register', user.register);
@@ -16,7 +17,7 @@ router.get('/profile', secure.isAuthenticated, user.profile);
 
 
 router.get('/profile', recipe.registerRecipe);
-router.post('/profile', recipe.doRegisterRecipe);
+router.post('/profile', upload.single('image'), recipe.doRegisterRecipe);
 router.get('/book', book.recipeList)
 
 module.exports = router;

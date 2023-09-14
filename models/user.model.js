@@ -47,7 +47,10 @@ const userSchema = new Schema({
 userSchema.virtual('recipes', {
   ref: 'Recipe',
   localField: '_id',
-  foreignField: 'user'
+  foreignField: 'user',
+  options: {
+    sort: {createdAt: -1},
+  }
 })
 
 userSchema.pre('save', function(next) {

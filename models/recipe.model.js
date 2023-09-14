@@ -1,11 +1,12 @@
 const mongoose = require ('mongoose');
 
 const recipeSchema = new mongoose.Schema({
+    title: { type: String },
     description: { type: String },
     time: { type: String },
     potato: { type: mongoose.Schema.Types.ObjectId, ref: 'Potato' },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    avatar: { type: String },
+    image: { type: String }
   },    
   { timestamps: true }
 );

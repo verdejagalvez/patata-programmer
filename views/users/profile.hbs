@@ -1,62 +1,71 @@
-<div class="d-flex justify-content-center mt-5">
-  <form style="width: 80rem;" action="/profile" method="post" enctype="multipart/"> 
-    <img class="rounded-circle" src="{{user.avatarUrl}}" alt="{{user.name}}" width="50">
-    Create a recipe!
-    <div class="form-floating m-2">
-      <input class="form-control" name="title" placeholder="Create a title" id="floatingTextarea"></input>
-      <label for="floatingTextarea">Title</label>
-    </div> 
-    <div class="form-floating m-2">  
-      <input class="form-control" name="description" placeholder="Leave your descrption here" id="floatingTextarea"></input>
-      <label for="floatingTextarea">Write the steps of recipe</label>
-    </div>
-    <div class="row g-2 m-2">
+<form action="/profile" method="post" enctype="multipart/form-data"> 
+  <div class="container text-center">
+    <img class="rounded m-1" src="{{user.avatarUrl}}" alt="{{user.name}}" width="80" />
+    <h3 class="display-4">Create a recipe!</h3>
+  </div>    
+  <div class="container">
+    <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="form-floating">
-          <select name="potato" class="form-select" id="floatingSelectGrid">
-            {{#each potatoes as |potato|}}
-              <option value="{{potato._id}}">{{potato.name}}</option>
-            {{/each}}
-          </select>
-          <label for="floatingSelectGrid">Choose your potato</label>
-        </div>
+        <div class="form-floating mb-4">
+          <input class="form-control" name="title" placeholder="Create a title" id="floatingTextarea1" />
+          <label for="floatingTextarea1">Title</label>
+        </div> 
       </div>
-      <div class="col-md-6"> 
-        <div class="form-floating">
-          <input type="text" name="time" class="form-control" id="floatingInputGrid" placeholder="time">
-          <label for="floatingInputGrid m-2">Time to cook</label>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form-floating mb-4">
+          <label for="description" class="form-label">Write the steps of the recipe</label>
+          <textarea class="form-control" name="description" id="description" placeholder="Leave your description here" style="width: 100%; height: 200px;"></textarea>
         </div>
       </div>
     </div>
-    <div class="input-group mb-3 m-3">
-      <input type="file" class="form-control" id="inputGroupFile02">
-      <label class="input-group-text" for="inputGroupFile02">Upload</label>
-    </div>
-    <div class="container">
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
       <div class="row">
-        <div class="col">
-          <div class="m-1">
-            <button type="submit" class="btn btn-outline-secondary mb-5">Publish</button>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="floatingSelectGrid" class="m-2">Choose your potato</label>
+            <select name="potato" class="form-select" id="floatingSelectGrid">
+              {{#each potatoes as |potato|}}
+                <option value="{{potato._id}}">{{potato.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-4">
+            <label for="floatingInputGrid" class="m-2">Time to cook</label>
+            <input type="text" name="time" class="form-control" id="floatingInputGrid" placeholder="time">
+          </div>
           </div>
         </div>
       </div>
     </div>
-  </form>
-</div>
-
-<div>
-  <h5 class="container d-flex justify-content-center">Recipe of {{user.username}}</h5>
-</div>
+  </div>
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6 mb-4">
+        <div class="container d-flex justify-content-center mb-4">
+          <button type="submit" class="btn btn-outline-secondary mb-5">Publish</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 
 <hr>
+<div class="container text-center my-5">
+  <h3 class="display-4"> Recipe of {{user.username}}!</h3>
+</div>
 
- 
 {{#each user.recipes as |recipe| }}
-  <div class="container d-flex justify-content-center">
+  <div class="container">
     <div class="row">
       <div class="col-lg-4 mb-4">
-        <div class="card" style="width: 80rem;">
+        <div class="card border-warning"  style="width: 80rem;">
           <div class="card-body">
+            <img src="{{recipe.image}}" class="card-img-top custom-centered-image" alt="Recipe Image" />
             <h4> {{ recipe.title }}</h4>
             <img class="rounded-circle" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="35" />
             <h4> {{ user.username }}</h4>

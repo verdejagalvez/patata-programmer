@@ -1,4 +1,4 @@
-<div class="container pt-5">
+<div class="container pt-1">
   <div id="carouselExampleCaptions" class="carousel slide m-5" data-bs-ride="carousel" data-bs-interval="3000">
     <ol class="carousel-indicators mt-5">
       <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
@@ -6,7 +6,7 @@
       <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
       <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
     </ol>
-    <div class="carousel-inner m-5">
+    <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="/monalisa.jpg" class="d-block w-100" alt="">
         <div class="carousel-caption d-none d-md-block"></div>
@@ -34,17 +34,18 @@
     </a>
   </div>
 </div>
-
-<div class="text-center m-5">
-  <i class="fas fa-utensils mr-3 p-3 list-inline-item display-1"></i>
-  <div class="list-inline-item display-1">Recetas Patateras</div>
+<div class="card border-warning m-2 shadow p-1 mb-1 bg-white rounded custom-width mx-auto">
+  <div class="text-center">
+    <h3><i class="fas fa-utensils mr-2 p-1 list-inline-item"></i></h3>
+    <div class="list-inline-item mr-2 p-1 "><h2>Recetas Patateras</h2></div>
+  </div>
 </div>
 
 <div class="container">
   <div class="row">
     {{#each recipes as |recipe| }}
       <div class="col-4 mb-4">
-        <div class="card m-4">
+        <div class="card border-warning m-4 shadow p-3 mb-5 bg-white rounded">
          <img src="{{recipe.image}}" class="card-img-top custom-centered-image" alt="Recipe Image" width="180" height="280" />
           <img class="rounded ms-3 mt-3" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="55" />
           <div class="card-body">

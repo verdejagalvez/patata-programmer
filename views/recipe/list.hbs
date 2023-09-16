@@ -37,7 +37,7 @@
 <div class="card border-warning m-2 shadow p-1 mb-1 bg-white rounded custom-width mx-auto">
   <div class="text-center">
     <h3><i class="fas fa-utensils mr-2 p-1 list-inline-item"></i></h3>
-    <div class="list-inline-item mr-2 p-1 "><h2>Recetas Patateras</h2></div>
+    <div class="list-inline-item mr-2 p-1 "><h2>Latest recipes</h2></div>
   </div>
 </div>
 
@@ -45,12 +45,20 @@
   <div class="row">
     {{#each recipes as |recipe| }}
       <div class="col-4 mb-4">
-        <div class="card border-warning m-4 shadow p-3 mb-5 bg-white rounded">
-         <img src="{{recipe.image}}" class="card-img-top custom-centered-image" alt="Recipe Image" width="180" height="280" />
-          <img class="rounded ms-3 mt-3" src="{{ user.avatarUrl }}" alt="{{ user.username }}" width="55" />
+        <div class="card border-warning m-4 shadow p-3 mb-5 bg-white rounded recipe-card">
+          <div class="custom-centered-image">
+            <img src="{{recipe.image}}" class="card-img-top image-custom" alt="Recipe Image"/>
+          </div>
+          <div class="row">
+              <div class="col">
+              <h4 class="ms-3 mt-3 mb-3"> {{ recipe.title }}</h4>
+                <div clas="d-flex aling-items-center">
+                  <img class="rounded-circle ms-3" src="{{ user.avatarUrl }}" alt="{{ user.avatarUrl }}" width="55"></img>
+                  <span class="ms-3 mt-3 h4">@{{ recipe.user.username }}</span>
+                </div>
+            </div>
+          </div>
           <div class="card-body">
-            <h4 class="card-title">{{ recipe.user.username }}</h4>
-            <p class="card-text">{{ recipe.description }}</p>
             <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
             {{#if ../currentUser}} 
               <a href="/book" class="btn btn-outline-success btn-sm" aria-disabled="true">More Recipes {{currentUser.name}}</a>

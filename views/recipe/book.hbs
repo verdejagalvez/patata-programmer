@@ -8,7 +8,7 @@
   <div class="row">
     {{#each recipes as |recipe|}}
       <div class="col-4 mb-3">
-        <div class="card border-warning shadow p-3 mb-5 bg-white rounded">
+        <div class="card border-warning shadow p-3 mb-5 bg-white rounded long">
           <div class="custom-centered-image">
             <img src="{{recipe.image}}" class="card-img-top image-custom recipe-image-book" alt="Recipe Image" />
           </div>
@@ -31,7 +31,8 @@
                  Read more
                </button>
 
-               <button type="button" class="btn btn-outline-danger btn-sm mb-3 mt-3 ms-3"><i class="far fa-heart"></i>
+               <button type="button" name="likes" action="/book" method="post" class=" like btn btn-outline-danger btn-sm mb-3 mt-3 ms-3"><i class="far fa-heart"></i>
+               {{ recipe.likes }}
                </button>
                 
 

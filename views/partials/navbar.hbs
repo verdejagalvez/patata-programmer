@@ -1,29 +1,31 @@
 <nav class="navbar bg-warning degradado-fondo">
   <div class="container-fluid">
-    <button class="navbar list-inline-item" href="/"><h3>Patata Programmer {{ user.name }}!</h3></button>
+    <a class="navbar list-inline-item text-reset text-decoration-none" href="/"><h3>Patata Programmer {{ user.name }}!</h3></a>
     <ul class="nav nav-tabs">
       <li class="nav-item">
        <a class="nav-link active" aria-current="page" href="/">Home</a>
       </li>
       <li class="nav-item">
       {{#if currentUser}} 
-        <a class="nav-link" href="/profile" aria-disabled="true" >Profile</a> 
+        <a class="nav-link" href="/profile" aria-disabled="true">Profile</a> 
       <li class="nav-item">
         <a class="nav-link" href="/logout" aria-disabled="true">Logout</a>
       </li> 
       <li class="nav-item">
         <a class="nav-link" href="/book" aria-disabled="true">Recipe Book</a>
-      </li> 
+      </li>
       {{else}} 
        <li class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
         <a class="nav-link" href="/login" >Login</a> 
-        
       {{/if}} 
+       <li class="nav-item">
+        <a class="nav-link" href="/variety" aria-disabled="true">Variety</a>
+      </li> 
     </ul>
-    <form class="d-flex" role="random">
-      <button class="btn btn-outline-success btn-sm" type="submit">Random Recipe</button>
-    </form>
+     <li class="nav-item">
+        <a class="nav-link" href="/random" aria-disabled="true">Random recipe</a>
+      </li> 
   </div>
 </nav>

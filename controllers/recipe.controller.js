@@ -12,7 +12,8 @@ module.exports.doRegisterRecipe = (req, res, next) => {
     title: req.body.title,
     description: req.body.description, 
     user: req.user.id,
-    image: req.file.path
+    image: req.file.path,
+    likes: req.body.likes
   })
   .then(() => {
     console.log('receta creada')
@@ -32,3 +33,6 @@ module.exports.recipeList = (req, res, next) => {
   .catch((error) => next(error));
 }
 
+module.exports.recipeRandom = (req, res, next) => {
+res.render('recipe/random')
+};

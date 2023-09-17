@@ -6,7 +6,8 @@ const recipeSchema = new mongoose.Schema({
     time: { type: String },
     potato: { type: mongoose.Schema.Types.ObjectId, ref: 'Potato' },
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    image: { type: String }
+    image: { type: String },
+    likes: { type: Number, default: 0 }
   },    
   { timestamps: true }
 );

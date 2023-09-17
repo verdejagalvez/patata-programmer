@@ -15,9 +15,15 @@ router.post('/login', user.doLogin);
 router.get('/logout', user.logout)
 router.get('/profile', secure.isAuthenticated, user.profile);
 
+router.get('/variety', potato.potatoList);
+
 
 router.get('/profile', recipe.registerRecipe);
 router.post('/profile', upload.single('image'), recipe.doRegisterRecipe);
-router.get('/book', book.recipeList)
+router.get('/book', book.recipeList);
+router.get('/random', recipe.recipeRandom);
+
+router.post('/book', book.bookLike);
 
 module.exports = router;
+

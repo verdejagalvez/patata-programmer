@@ -9,9 +9,7 @@ const schema = new mongoose.Schema(
     ref: "String",
     useRecipe: "String"
   },
-  {
-    timestamps: true,
-  }
+  {timestamps: true,}
 );
 
 const Potato = mongoose.model('Potato', schema);

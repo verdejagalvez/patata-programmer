@@ -17,13 +17,13 @@ router.get('/profile', secure.isAuthenticated, user.profile);
 
 router.get('/variety', potato.potatoList);
 
-
 router.get('/profile', recipe.registerRecipe);
 router.post('/profile', upload.single('image'), recipe.doRegisterRecipe);
 router.get('/book', book.recipeList);
 router.get('/random', recipe.recipeRandom);
 
-router.post('/book', book.bookLike);
+router.post('/likes/:recipeId', recipe.recipeLike);
+router.post('/delete/:recipeId', recipe.recipeDelete)
 
 module.exports = router;
 

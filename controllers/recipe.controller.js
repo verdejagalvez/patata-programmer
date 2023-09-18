@@ -32,9 +32,22 @@ module.exports.recipeList = (req, res, next) => {
   .then((recipes) => res.render('recipe/list', { recipes, currentUser}))
   .catch((error) => next(error));
 }
+module.exports.recipeDelete = (req, res, next) => {
+  const recipeIdDelete = req.params.recipeId;
 
-
-
+  Recipe.findByIdAndRemove(recipeIdDelete, (err, recipeDelete) => {
+    if (err) {
+      console.error('Error al eliminar la receta:', err);
+      res.status(500).json({ error: 'No se pudo eliminar la receta' });
+    } else if (!recipeDelete) {
+      console.error('No se encontró una receta con ese ID.');
+      res.status(404).json({ error: 'No se encontró la receta' });
+    } else {
+      console.log('Receta eliminada:', recipeDelete);
+      res.status(200).json({ message: 'Receta eliminada con éxito' });
+    }
+  });
+};
 
 async function findRandomRecipeId() {
   try {
@@ -50,14 +63,12 @@ async function findRandomRecipeId() {
 module.exports.recipeRandom = async (req, res, next) => {
   try {
     const recipeId = await findRandomRecipeId();
-
-    // Obtener la receta y los detalles del usuario desde la base de datos
     const recipe = await Recipe.findById(recipeId).exec();
-    const userId = recipe.user; // Supongamos que la receta tiene una referencia al usuario
-    const user = await User.findById(userId).exec(); // Reemplaza 'User' con el modelo de usuario real de tu aplicación
+    const userId = recipe.user;
+    const user = await User.findById(userId).exec();
 
-    const username = user.username; // Obtener el nombre de usuario
-    const avatarUrl = user.avatarUrl; // Obtener la URL del avatar
+    const username = user.username; 
+    const avatarUrl = user.avatarUrl;
     const image = user.image;
     const likes = user.likes;
     const description = user.description;
@@ -78,4 +89,17 @@ module.exports.recipeRandom = async (req, res, next) => {
     console.error("Error obteniendo receta aleatoria:", err);
     res.status(500).send("Error obteniendo receta aleatoria");
   }
+};
+
+module.exports.recipeLike = async (req, res, next) => {
+  try {
+    const recipe = req.recipeId; 
+    
+    recipe.likes += 1;
+    
+  await recipe.save();
+  
+  } catch (error) {
+    console.error(error);
+}
 };

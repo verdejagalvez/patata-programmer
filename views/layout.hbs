@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patata-Programmer</title>
     <link rel="shortcut icon" href="/potatoFavicon.ico">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
-     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
       .carousel-indicators {
         display: none;
       }
       .degradado-fondo {
-       background-image: linear-gradient(to bottom, #f9f7bd, hsl(36, 100%, 73%));
+       background-image: linear-gradient(to bottom, #F9F7BD, hsl(36, 100%, 73%));
       }
       .carousel-control-prev .carousel-control-prev-icon,
       .carousel-control-next .carousel-control-next-icon  {
@@ -23,38 +23,37 @@
         background-color: gray;
         color: white;
       }
-      
+      .custom-centered-image {
+        max-width: 370px;
+        height: 182px;
+      }
       .long{
-        min-height: 10px;
+        min-height: 510px;
       }
       .image-custom{
         height: inherit;
         object-fit: cover;
       }
       .custom-textarea {
-        height: 500px; 
+        height: 500px;
       }
       .custom-width-container {
         display: block;
-        margin: 0 auto; 
-        max-width: 250px; 
+        margin: 0 auto;
+        max-width: 250px;
         height: auto;
       }
       .custom-width {
         width: 48%;
         margin: 10%;
       }
-      .custom-width-register {
-        width: 28%;
-        margin: 10%;
-      }
       .custom-width-profile {
-        width: 20%;
+        width: 38%;
         margin: 10%;
       }
       .custom-width-book {
         width: 50%;
-        margin: 3%;
+        margin: 10%;
       }
       .same-width {
         width: 100%;
@@ -63,23 +62,20 @@
         height: 30rem;
       }
       .recipe-image-book{
-        width: 300px
+        width: 380px
       }
-
-
-      
     </style>
 </head>
-
 <body>
-
     {{> navbar}}
-
     <div>
     {{{body}}}
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
+
+

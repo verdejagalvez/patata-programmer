@@ -1,28 +1,30 @@
-<div class="card border-warning shadow bg-white rounded custom-width-book mx-auto">
-  <div class="text-center">
-    <h3><i class="fas fa-utensils list-inline-item"></i></h3>
-    <div class="list-inline-item "><h2>The book of all recipes</h2></div>
+<div class="text-center card border-warning m-3 shadow mb-5 bg-white rounded custom-width-profile mx-auto mt-5">
+    <h3><i class="fas fa-utensils mt-2 mr-2 p-1 list-inline-item"></i></h3>
+    <div class="list-inline-item mr-2 p-1"><h4>Book of recipes</h4></div>
   </div>
-</div>
-<div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center mt-5">
   <div class="row">
     {{#each recipes as |recipe|}}
-      <div class="col-4">
+      <div class="col-4 mb-3">
         <div class="card border-warning shadow p-3 mb-5 bg-white rounded long">
           <div class="custom-centered-image">
-            <img src="{{recipe.image}}" class="card-img-top image-custom" alt="Recipe Image"/>
+            <img src="{{recipe.image}}" class="card-img-top image-custom recipe-image-book" alt="Recipe Image" />
           </div>
           <h4 class=" mt-3 mb-3 ms-3"> {{ recipe.title }}</h4>
-          <div clas="d-flex aling-items-center">
-            <img class="rounded-circle ms-3" src="{{ user.avatarUrl }}" alt="{{ user.avatarUrl }}" width="55"></img>
-            <span class="ms-3 mt-3 h4">@{{ recipe.user.username }}</span>
-          </div>
-          <div class="d-flex align-items-center">
-            <button class="btn btn-primary mb-3 mt-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-recipe-{{ recipe.id }}" aria-expanded="false" aria-controls="collapse-recipe-{{ recipe.id }}">
-              Read more
-            </button>
-            <button type="button" name="likes" action="/book" method="post" class="like btn btn-outline-danger btn-sm mb-3 mt-3"><i class="far fa-heart"></i> {{ recipe.recipeLike }}</button>
-          </div>
+         <div clas="d-flex aling-items-center">
+                  <img class="rounded-circle ms-3" src="{{ user.avatarUrl }}" alt="{{ user.avatarUrl }}" width="55"></img>
+                  <span class="ms-3 mt-3 h4">@{{ recipe.user.username }}</span>
+                </div>
+                   <div class="d-flex items-aling-center">
+               <button class="btn btn-primary mb-3 mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-recipe-{{ recipe.id }}" aria-expanded="false" aria-controls="collapse-recipe-{{ recipe.id }}">
+                 Read more
+               </button>
+               <form action="/likes/{{recipe._id}}" method="POST">
+               <button class=" like btn btn-outline-danger btn-sm mb-3 mt-3 ms-3"><i class="far fa-heart"></i>
+               {{ recipe.likes }}
+               </button>
+               </form>
+               </div>
           <div class="card-body">
             <div>
                <div class="collapse" id="collapse-recipe-{{ recipe.id }}">
@@ -38,4 +40,3 @@
     {{/each}}
   </div>
 </div>
-

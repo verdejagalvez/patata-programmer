@@ -82,7 +82,9 @@
             <h4> {{ user.username }}</h4>
             <p class="card-text">{{ recipe.description }}</p>
             <p><strong>{{ elapsedTime recipe.createdAt }}</strong></p>
-            <a href="/profile" class="btn btn-outline-success btn-sm" {{ recipe.recipeDelete }}> Delete Recipe </a>
+            <form action="/delete/{{recipe._id}}" method="POST">
+            <button class="btn btn-outline-success btn-sm" {{ recipe.recipeDelete }}> Delete Recipe </button>
+            </form>
           </div>
         </div>
       </div>

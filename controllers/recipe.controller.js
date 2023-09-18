@@ -32,21 +32,11 @@ module.exports.recipeList = (req, res, next) => {
   .then((recipes) => res.render('recipe/list', { recipes, currentUser}))
   .catch((error) => next(error));
 }
-module.exports.recipeDelete = (req, res, next) => {
+module.exports.recipeDelete = async (req, res, next) => {
   const recipeIdDelete = req.params.recipeId;
 
-  Recipe.findByIdAndRemove(recipeIdDelete, (err, recipeDelete) => {
-    if (err) {
-      console.error('Error al eliminar la receta:', err);
-      res.status(500).json({ error: 'No se pudo eliminar la receta' });
-    } else if (!recipeDelete) {
-      console.error('No se encontró una receta con ese ID.');
-      res.status(404).json({ error: 'No se encontró la receta' });
-    } else {
-      console.log('Receta eliminada:', recipeDelete);
-      res.status(200).json({ message: 'Receta eliminada con éxito' });
-    }
-  });
+await Recipe.findByIdAndDelete(recipeIdDelete);
+  res.redirect('/profile')
 };
 
 async function findRandomRecipeId() {
@@ -93,11 +83,14 @@ module.exports.recipeRandom = async (req, res, next) => {
 
 module.exports.recipeLike = async (req, res, next) => {
   try {
-    const recipe = req.recipeId; 
+    const recipeId = req.params.recipeId; 
+    console.log(req.params)
+const recipe = await Recipe.findOneAndUpdate({_id :recipeId}, {$inc : {'likes' : 1}}).exec();
+console.log(recipe)
+    res.redirect('/book')
+    //recipe.likes += 1;
     
-    recipe.likes += 1;
-    
-  await recipe.save();
+  //await recipe.save();
   
   } catch (error) {
     console.error(error);

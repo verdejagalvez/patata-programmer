@@ -1,44 +1,45 @@
 <form action="/register" method="post">
-<div class="text-center card border-warning m-3 shadow mb-5 bg-white rounded custom-width-profile mx-auto mt-5">
-    <h3><i class="fas fa-utensils mt-2 mr-2 p-1 list-inline-item"></i></h3>
-    <div class="list-inline-item mr-2 p-1"><h4>Register</h4></div>
+  <div class="text-center card border-warning shadow bg-white rounded custom-width-card mt-4 mb-3">
+    <div class="list-inline-item m-2 mr-2 p-1"><h4>Register</h4></div>
   </div>
 
   <div class="container">
     <div class="row">
-    <div class="col">   
-    <div class="row justify-content-center m-3">
-        <div class="col-md-5">
-          <div class="mb-3">
-            <label class="form-label fs-6">Name</label>
-            <input name="name" type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" aria-label="Name" value="{{ user.name }}">
-            {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}} 
-          </div>
+      <div class="col">   
+        <div class="row justify-content-center m-3">
+          <div class="col-md-5">
+            <div class="mb-3 mt-3">
+              <label class="form-label fs-6">Name</label>
+              <input name="name" type="text" class="form-control {{#if errors.name}}is-invalid{{/if}}" aria-label="Name" value="{{ user.name }}">
+              {{#if errors.name}}<div class="invalid-feedback">{{ errors.name }}</div>{{/if}} 
+            </div>
 
-          <div class="mb-3">
-            <label class="form-label fs-6">Username</label>
-            <input name="username" type="text" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="userName" value="{{ user.name }}">
-            {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
-          </div>
+            <div class="mb-3">
+              <label class="form-label fs-6">Username</label>
+              <input name="username" type="text" class="form-control {{#if errors.username}}is-invalid{{/if}}" aria-label="userName" value="{{ user.name }}">
+              {{#if errors.username}}<div class="invalid-feedback">{{ errors.username }}</div>{{/if}}
+            </div>
 
-          <div class="mb-3">
-            <label class="form-label fs-6">Email address</label>
-            <input name="email" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" aria-label="email" value="{{ user.email }}">
-            {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
-          </div>
+            <div class="mb-3">
+              <label class="form-label fs-6">Email address</label>
+              <input name="email" type="email" class="form-control {{#if errors.email}}is-invalid{{/if}}" aria-label="email" value="{{ user.email }}">
+              {{#if errors.email}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
+            </div>
 
-          <div class="mb-3">
-            <label class="form-label fs-6">Password</label>
-            <input name="password" type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" aria-label="password" value="{{ user.password }}">
-            {{#if errors.password}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
-          </div>
+            <div class="mb-3">
+              <label class="form-label fs-6">Password</label>
+              <input name="password" type="password" class="form-control {{#if errors.password}}is-invalid{{/if}}" aria-label="password" value="{{ user.password }}">
+              {{#if errors.password}}<div class="invalid-feedback">{{ errors.email }}</div>{{/if}}
+            </div>
 
-          <div class="mb-3">        
-          <button type="submit" class="btn btn-outline-secondary">Register</button>
-          <button class="btn btn-outline-secondary" type="button" onclick="window.location.href = '/'">Back</button>
-          <label class="form-label ml-3"><small>¿Ya eres miembro?</label></small>    
-          <button class="btn m-1 sm btn-outline-secondary" type="button" onclick="window.location.href = '/login'">login</button>
-          </div>
-    </div>  
+            <div class="mb-3">        
+              <button type="submit" class="btn btn-outline-secondary">Register</button>
+              <button class="btn btn-outline-secondary" type="button" onclick="window.location.href = '/'">Back</button>
+              <label class="form-label custom-margin-left-button-register"><small>¿Ya eres miembro?</small></label>
+              <button class="btn btn-outline-secondary" type="button" onclick="window.location.href = '/login'">Login</button>
+            </div>
+         </div>
+      </div>  
+    </div>
   </div>
 </form>

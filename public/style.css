@@ -2,12 +2,7 @@
 .degradado-fondo-navbar{
   background-image: linear-gradient(to bottom, #F9F7BD, hsl(36, 100%, 73%));
  }
- .nav-tabs
- .active {
-  background-color: #000000; /* Color de fondo activo */
-  color: white; /* Color de texto activo */
-}
-
+ 
 .carousel-control-prev .carousel-control-next-icon,
 .carousel-control-prev .carousel-control-next-icon  {
   background-color: rgb(248, 238, 180);
@@ -36,39 +31,47 @@
   margin-right: auto;
   padding: 2%;
 }
+
 .recipe-card-list-home {
   height: 14rem; 
   width: 340px; 
   padding: 2%;
 }
+
 .recipe-card-list {
   height: 50rem; 
   width: 370px; 
   padding: 2%;
 }
+
 .custom-margin-left-button-register {
   margin-left: 55px;
 }
+
 .custom-margin-left-button-login {
   margin-left: 20px;
 }
+
 .custom-width-card-profile {
   width: 55%;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
 }
+
 .custom-width-card-book {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
 }
+
 .recipe-card-list-book {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .custom-width-card-random {
   width: 55%;
   margin-left: auto;
@@ -80,14 +83,17 @@
   background-color: gray;
   color: white;
 }
+
 .custom-centered-image-profile-recipe {
   max-width: 450px;
   height: 300px;
   padding: 1%;
 }
+
 .long-card-book{
   min-height: 600px;
 }
+
 .image-custom-home-recipe {
   height: inherit;
   object-fit: cover;
@@ -104,32 +110,38 @@
   width: 48%;
   margin: 10%;
 }
+
 .custom-width-profile {
   width: 20%;
   margin: 10%;
 }
+
 .custom-width-book {
   width: 50%;
   margin: 10%;
 }
+
 .image-custom-book-recipe {
   height: 14rem; 
   width: 200px; 
   padding: 2%;
   min-height: 60px;
 }
+
 .custom-width-card-variety{
   width: 55%;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
 }
+
 .custom-width-card-variety-potato {
   width: 85%;
   margin-left: auto;
   margin-right: auto;
   padding: 2%;
 }
+
 .custom-recipe-image-variety {
   display: flex;
   justify-content: center;

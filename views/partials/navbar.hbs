@@ -24,12 +24,11 @@
       </li> 
     </ul>
      
-      {{#if currentUser}} 
-        <a class="btn btn-outline-success btn-sm" href="/random" aria-disabled="true">Random recipe</a>
-      {{else}} 
-      <a href="/register" class="btn btn-outline-success btn-sm">Random recipes</a>
-      {{/if}} 
-    
+    {{#if currentUser}} 
+      <a class="btn btn-outline-success btn-sm" href="/random" aria-disabled="true">Random recipe</a>
+    {{else}} 
+    <a href="/register" class="btn btn-outline-success btn-sm">Random recipes</a>
+    {{/if}} 
   </div>
 </nav>
 
